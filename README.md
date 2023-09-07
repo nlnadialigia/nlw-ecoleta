@@ -164,22 +164,24 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[React Dropzone](https://github.com/react-dropzone/react-dropzone)**
 
 > Veja o arquivo  [package.json](https://github.com/tgmarinho/README-ecoleta/blob/master/web/package.json)
+-->
 
-#### [](https://github.com/tgmarinho/Ecoleta#server-nodejs--typescript)**Server**  ([NodeJS](https://nodejs.org/en/)  +  [TypeScript](https://www.typescriptlang.org/))
+
+**Server**  ([NodeJS](https://nodejs.org/en/)  +  [TypeScript](https://www.typescriptlang.org/))
 
 -   **[Express](https://expressjs.com/)**
--   **[CORS](https://expressjs.com/en/resources/middleware/cors.html)**
+<!-- -   **[CORS](https://expressjs.com/en/resources/middleware/cors.html)**
 -   **[KnexJS](http://knexjs.org/)**
 -   **[SQLite](https://github.com/mapbox/node-sqlite3)**
 -   **[ts-node](https://github.com/TypeStrong/ts-node)**
 -   **[dotENV](https://github.com/motdotla/dotenv)**
 -   **[Multer](https://github.com/expressjs/multer)**
 -   **[Celebrate](https://github.com/arb/celebrate)**
--   **[Joi](https://github.com/hapijs/joi)**
+-   **[Joi](https://github.com/hapijs/joi)** -->
 
-> Veja o arquivo  [package.json](https://github.com/tgmarinho/README-ecoleta/blob/master/server/package.json)
-
-#### [](https://github.com/tgmarinho/Ecoleta#mobile-react-native--typescript)**Mobile**  ([React Native](http://www.reactnative.com/)  +  [TypeScript](https://www.typescriptlang.org/))
+> Veja o arquivo  [package.json](https://github.com/nlnadialigia/nlw-ecoleta/blob/b10483592449973e5fc81416d9160b7d1af13128/server/package.json)
+<!-- 
+**Mobile**  ([React Native](http://www.reactnative.com/)  +  [TypeScript](https://www.typescriptlang.org/))
 
 -   **[Expo](https://expo.io/)**
 -   **[Expo Google Fonts](https://github.com/expo/google-fonts)**
@@ -191,9 +193,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[Expo Location](https://docs.expo.io/versions/latest/sdk/location/)**
 -   **[Expo Mail Composer](https://docs.expo.io/versions/latest/sdk/mail-composer/)**
 
-> Veja o arquivo  [package.json](https://github.com/tgmarinho/README-ecoleta/blob/master/mobile/package.json)
-
-#### [](https://github.com/tgmarinho/Ecoleta#utilit%C3%A1rios) -->
+> Veja o arquivo  [package.json](https://github.com/tgmarinho/README-ecoleta/blob/master/mobile/package.json) -->
 
 **Utilitários**
 
