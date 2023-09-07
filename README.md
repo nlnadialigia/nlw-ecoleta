@@ -154,7 +154,7 @@ $ npm run start
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### **Website**  ([React](https://reactjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
+<!-- #### **Website**  ([React](https://reactjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
 
 -   **[React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**
 -   **[React Icons](https://react-icons.github.io/react-icons/)**
@@ -193,7 +193,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 > Veja o arquivo  [package.json](https://github.com/tgmarinho/README-ecoleta/blob/master/mobile/package.json)
 
-#### [](https://github.com/tgmarinho/Ecoleta#utilit%C3%A1rios)
+#### [](https://github.com/tgmarinho/Ecoleta#utilit%C3%A1rios) -->
 
 **Utilitários**
 
