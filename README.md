@@ -90,10 +90,10 @@ O layout da aplicação está disponível no [Figma](https://www.figma.com/file/
 
 ## 🚀 Como executar o projeto
 
-<!-- Este projeto é divido em três partes:
+Este projeto é divido em três partes:
 1. Backend (pasta server) 
 2. Frontend (pasta web)
-3. Mobile (pasta mobile)
+<!-- 3. Mobile (pasta mobile) -->
 
 💡Tanto o Frontend quanto o Mobile precisam que o Backend esteja sendo executado para funcionar.
 
@@ -103,10 +103,10 @@ O layout da aplicação está disponível no [Figma](https://www.figma.com/file/
 ```bash
 
 # Clone este repositório
-$ git clone git@github.com:tgmarinho/README-ecoleta.git
+$ git clone git@github.com:nlnadialigia/nlw-ecoleta.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd README-ecoleta
+$ cd nlw-ecoleta
 
 # Vá para a pasta server
 $ cd server
@@ -115,14 +115,14 @@ $ cd server
 $ npm install
 
 # Execute a aplicação em modo de desenvolvimento
-$ npm run dev:server
+$ npm run dev
 
 # O servidor inciará na porta:3333 - acesse http://localhost:3333 
 
 ```
-<p align="center">
+<!-- <p align="center">
   <a href="https://github.com/tgmarinho/README-ecoleta/blob/master/Insomnia_API_Ecoletajson.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
-</p>
+</p> -->
 
 
 #### 🧭 Rodando a aplicação web (Frontend)
@@ -130,10 +130,10 @@ $ npm run dev:server
 ```bash
 
 # Clone este repositório
-$ git clone git@github.com:tgmarinho/README-ecoleta.git
+$ git git@github.com:nlnadialigia/nlw-ecoleta.git
 
 # Acesse a pasta do projeto no seu terminal/cmd
-$ cd README-ecoleta
+$ cd nlw-ecoleta
 
 # Vá para a pasta da aplicação Front End
 $ cd web
@@ -146,7 +146,7 @@ $ npm run start
 
 # A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 
-``` -->
+```
 
 <br>
 
@@ -154,17 +154,17 @@ $ npm run start
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-<!-- #### **Website**  ([React](https://reactjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
+#### **Website**  ([React](https://reactjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
 
--   **[React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**
+<!-- -   **[React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**
 -   **[React Icons](https://react-icons.github.io/react-icons/)**
 -   **[Axios](https://github.com/axios/axios)**
 -   **[Leaflet](https://react-leaflet.js.org/en/)**
 -   **[React Leaflet](https://react-leaflet.js.org/)**
--   **[React Dropzone](https://github.com/react-dropzone/react-dropzone)**
+-   **[React Dropzone](https://github.com/react-dropzone/react-dropzone)** -->
 
-> Veja o arquivo  [package.json](https://github.com/tgmarinho/README-ecoleta/blob/master/web/package.json)
--->
+<!-- > Veja o arquivo  [package.json](https://github.com/tgmarinho/README-ecoleta/blob/master/web/package.json) -->
+
 
 
 **Server**  ([NodeJS](https://nodejs.org/en/)  +  [TypeScript](https://www.typescriptlang.org/))
