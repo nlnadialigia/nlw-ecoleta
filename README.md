@@ -163,7 +163,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[React Leaflet](https://react-leaflet.js.org/)**
 -   **[React Dropzone](https://github.com/react-dropzone/react-dropzone)** -->
 
-<!-- > Veja o arquivo  [package.json](https://github.com/tgmarinho/README-ecoleta/blob/master/web/package.json) -->
+> Veja o arquivo  [package.json](https://github.com/nlnadialigia/nlw-ecoleta/blob/e96458f3f61583994e5d3e695b39d553fe541c3d/web/package.json)
 
 
 
