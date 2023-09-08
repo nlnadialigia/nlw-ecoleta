@@ -11,5 +11,7 @@ module.exports = {
   seeds: {
     directory: path.resolve(__dirname, "src", "database", "seeds")
   },
-  useNullAsDefault: true
+  useNullAsDefault: true,
+  debug: true,
+  pool: { min: 0, max: 10 },
 }

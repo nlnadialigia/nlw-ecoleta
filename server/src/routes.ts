@@ -1,54 +1,16 @@
-import "dotenv/config";
+
 import {Router} from "express";
-import {connection} from "./database/connection";
+import {ItemsController} from "./controllers/itemsController";
+import {PointsController} from "./controllers/pointsController";
 
 
 const routes = Router();
+const pointsController = new PointsController()
+const itemsController = new ItemsController()
 
-const url = process.env.URL
+routes.get("/items", itemsController.index);
 
-routes.get("/items", async (request, response) => {
-  const items = await connection("items").select("*")
-
-  const serializedItems = items.map(item => {
-    return {
-      id: item.id,
-      tittle: item.tittle,
-      image_url: `${url}/uploads/${item.image}`
-    }
-  })
-
-  return response.json(serializedItems)
-});
-
-routes.post("/points",async (request, response) => {
-  const {name, email, whatsapp, latitude, longitude, city, uf, items} = request.body
-
-  const trx = await connection.transaction()
-
-  const insertedIds = await trx("points").insert({
-    image: "image-fake",
-    name,
-    email,
-    whatsapp,
-    latitude,
-    longitude,
-    city,
-    uf,
-  })
-
-  const point_id = insertedIds[0]
-
-  const pointItems = items.map((item_id: number)=> {
-    return {
-      item_id,
-      point_id
-    }
-  })
-
-  await trx("point_items").insert(pointItems)
-
-  return response.status(200).json({message: "Successfully registered collection point!"})
-})
+routes.post("/points", pointsController.create)
+routes.get("/points/:id", pointsController.show)
 
 export {routes};
