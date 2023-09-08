@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import { connection } from "../database/connection";
 
+const img =
+  "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFya2V0fGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60";
+
 class PointsController {
   async create(request: Request, response: Response) {
     const { name, email, whatsapp, latitude, longitude, city, uf, items } =
@@ -9,7 +12,7 @@ class PointsController {
     try {
       const trx = await connection.transaction();
       const point = {
-        image: "image-fake",
+        image: img,
         name,
         email,
         whatsapp,

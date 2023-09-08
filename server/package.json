@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
     "migrate": "knex --knexfile knexfile.ts migrate:latest",
-    "seed": "knex --knexfile knexfile.ts seed:run"
+    "seed": "knex --knexfile knexfile.ts seed:run",
+    "del:database": "rm -r src/database/database.sqlite"
   },
   "keywords": [],
   "author": "Nádia Ligia",
