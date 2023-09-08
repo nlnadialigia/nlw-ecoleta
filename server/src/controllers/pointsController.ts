@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { connection } from "../database/connection";
+import { catchError } from "../utils/error";
 
 const img =
   "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFya2V0fGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60";
@@ -37,12 +38,12 @@ class PointsController {
 
       await trx.commit();
 
-      return response.status(200).json({
+      return response.status(201).json({
         id: point_id,
         ...point,
       });
     } catch (error) {
-      throw new Error(`${error}`);
+      return response.status(500).json(catchError(error));
     }
   }
 
@@ -54,7 +55,7 @@ class PointsController {
       const point = await trx("points").where("id", id).first();
 
       if (!point) {
-        return response.status(400).json({ message: "Point not found" });
+        return response.status(404).json({ message: "Point not found" });
       }
 
       const items = await trx("items")
@@ -64,9 +65,9 @@ class PointsController {
 
       await trx.commit();
 
-      return response.json({ point, items });
+      return response.status(200).json({ point, items });
     } catch (error) {
-      throw new Error(`${error}`);
+      return response.status(500).json(catchError(error));
     }
   }
 
@@ -85,9 +86,9 @@ class PointsController {
         .distinct()
         .select("points.*");
 
-      return response.json(points);
+      return response.status(200).json(points);
     } catch (error) {
-      throw new Error(`${error}`);
+      return response.status(500).json(catchError(error));
     }
   }
 }

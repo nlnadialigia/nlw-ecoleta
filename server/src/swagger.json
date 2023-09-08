@@ -1,0 +1,194 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ecoleta API",
+    "description": "API do projeto NLW-Ecoleta",
+    "contact": {
+      "name": "Nádia Ligia",
+      "email": "nlnadialigia@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/nlnadialigia/nlw-ecoleta/blob/549293be609233e00f7ef258052bed9e399bd1ad/LICENSE"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333",
+      "description": "Ecoleta API"
+    }
+  ],
+  "tags": [
+    { "name": "points", "description": "Pontos de coleta" },
+    { "name": "items", "description": "Items a serem coletados" }
+  ],
+  "paths": {
+    "/points": {
+      "post": {
+        "tags": ["points"],
+        "summary": "Criação de um ponto de coleta",
+        "description": "Adicionar um ponto de coleta",
+        "operationId": "addPoint",
+        "requestBody": {
+          "description": "Ponto de coleta a ser adicionado",
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AddPoint" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": ["points"],
+        "summary": "Buscar pontos de coleta",
+        "description": "Busca pontos de coleta por cidade, estado e items, sendo todos os campos obrigatórios",
+        "operationId": "searchPoint",
+        "parameters": [
+          {
+            "name": "uf",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "SP"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Jales"
+            }
+          },
+          {
+            "name": "items",
+            "in": "query",
+            "required": true,
+            "description": "Separar os items por vírgula",
+            "schema": {
+              "type": "string",
+              "example": "1,2,5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/points/{pointId}": {
+      "get": {
+        "tags": ["points"],
+        "summary": "Buscar Ponto de coleta por ID",
+        "description": "Retorna um ponto de coleta específico",
+        "operationId": "findPointById",
+        "parameters": [
+          {
+            "name": "pointId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "3"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/items": {
+      "get": {
+        "tags": ["items"],
+        "summary": "Listagem dos itens para coleta",
+        "description": "Retorna a lista de todos os itens cadastrados",
+        "operationId": "getItems",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddPoint": {
+        "required": [
+          "name",
+          "email",
+          "whatsapp",
+          "latitude",
+          "longitude",
+          "city",
+          "uf",
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Supermercado São Francisco"
+          },
+          "email": {
+            "type": "string",
+            "example": "saofrancisco@fake.com.br"
+          },
+          "whatsapp": {
+            "type": "string",
+            "example": "+551785698569"
+          },
+          "latitude": {
+            "type": "number",
+            "example": -15.86593
+          },
+          "longitude": {
+            "type": "number",
+            "example": -27.9856
+          },
+          "city": {
+            "type": "string",
+            "example": "Jales"
+          },
+          "uf": {
+            "type": "string",
+            "example": "SP"
+          },
+          "items": {
+            "type": "array",
+            "description": "Itens de coleta separados por vírgula",
+            "example": [1, 2, 6]
+          }
+        }
+      }
+    }
+  }
+}
