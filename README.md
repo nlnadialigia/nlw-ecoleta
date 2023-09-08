@@ -49,10 +49,14 @@ Projeto desenvolvido durante a **NLW - Next Level Week** oferecida pela [Rockets
 
 ## 📎 Funcionalidades
 
-📌 Criação de ponto de coleta
-📌 Listagem de tipos de items
-📌 Listagem de um ponto de coleta específico
-📌 Buscar por ponto de coleta
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+📌 Criação de ponto de coleta <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+📌 Listagem de tipos de items <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+📌 Listagem de um ponto de coleta específico <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+📌 Buscar por ponto de coleta <br>
 
 <!-- - [x] Os usuários tem acesso ao aplicativo móvel, onde podem:
   - [x] navegar pelo mapa para ver as instituições cadastradas
@@ -111,9 +115,15 @@ $ npm run dev
 
 ```
 
-<!-- <p align="center">
-  <a href="https://github.com/tgmarinho/README-ecoleta/blob/master/Insomnia_API_Ecoletajson.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
-</p> -->
+#### 🪄 Testando os endpoints
+
+A documentação dos endpoints se encontra no arquivo [_swagger.json_]("https://github.com/nlnadialigia/nlw-ecoleta/blob/ba761487c5358b7f8f5460664c5d86ea86f95d86/server/src/swagger.json")
+
+Para testar, **com a aplicação rodando**, acesse http://localhost:3333/api-docs
+
+<p align="center">
+  <img alt="Swagger" src="https://ik.imagekit.io/l7cwocexhc/ecoleta/swagger.png?updatedAt=1694204951409">
+</p>
 
 #### 🧭 Rodando a aplicação web (Frontend)
 
@@ -158,12 +168,13 @@ As seguintes ferramentas foram usadas na construção do projeto:
 **Server** ([NodeJS](https://nodejs.org/en/) + [TypeScript](https://www.typescriptlang.org/))
 
 - **[Express](https://expressjs.com/)**
-<!-- -   **[CORS](https://expressjs.com/en/resources/middleware/cors.html)**
+- **[CORS](https://expressjs.com/en/resources/middleware/cors.html)**
 - **[KnexJS](http://knexjs.org/)**
 - **[SQLite](https://github.com/mapbox/node-sqlite3)**
 - **[ts-node](https://github.com/TypeStrong/ts-node)**
 - **[dotENV](https://github.com/motdotla/dotenv)**
-- **[Multer](https://github.com/expressjs/multer)**
+- **[Swagger](https://swagger.io/specification/)**
+<!-- - **[Multer](https://github.com/expressjs/multer)**
 - **[Celebrate](https://github.com/arb/celebrate)**
 - **[Joi](https://github.com/hapijs/joi)** -->
 
@@ -189,12 +200,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Protótipo: **[Figma](https://www.figma.com/)**
 <!-- -   API:  **[IBGE API](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1)**  →  **[API de UFs](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-UFs-estadosGet)**,  **[API de Municípios](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-Municipios-estadosUFMunicipiosGet)**
 - Maps: **[Leaflet](https://react-leaflet.js.org/en/)**
-- Editor: **[Visual Studio Code](https://code.visualstudio.com/)** → Extensions: **[SQLite](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)**
-- Markdown: **[StackEdit](https://stackedit.io/)**, **[Markdown Emoji](https://gist.github.com/rxaviers/7360908)**
-- Commit Conventional: **[Commitlint](https://github.com/conventional-changelog/commitlint)**
-- Teste de API: **[Insomnia](https://insomnia.rest/)**
-- Ícones: **[Feather Icons](https://feathericons.com/)**, **[Font Awesome](https://fontawesome.com/)**
-- Fontes: **[Ubuntu](https://fonts.google.com/specimen/Ubuntu)**, **[Roboto](https://fonts.google.com/specimen/Roboto)**
   -->
 
 ---
