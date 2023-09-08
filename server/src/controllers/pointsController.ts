@@ -7,35 +7,36 @@ class PointsController {
       request.body;
 
     try {
-      await connection.transaction(async (trx) => {
-        const point = {
-          image: "image-fake",
-          name,
-          email,
-          whatsapp,
-          latitude,
-          longitude,
-          city,
-          uf,
+      const trx = await connection.transaction();
+      const point = {
+        image: "image-fake",
+        name,
+        email,
+        whatsapp,
+        latitude,
+        longitude,
+        city,
+        uf,
+      };
+
+      const insertedIds = await trx("points").insert(point);
+
+      const point_id = insertedIds[0];
+
+      const pointItems = items.map((item_id: number) => {
+        return {
+          item_id,
+          point_id,
         };
+      });
 
-        const insertedIds = await trx("points").insert(point);
+      await trx("point_items").insert(pointItems);
 
-        const point_id = insertedIds[0];
+      await trx.commit();
 
-        const pointItems = items.map((item_id: number) => {
-          return {
-            item_id,
-            point_id,
-          };
-        });
-
-        await trx("point_items").insert(pointItems);
-
-        return response.status(200).json({
-          id: point_id,
-          ...point,
-        });
+      return response.status(200).json({
+        id: point_id,
+        ...point,
       });
     } catch (error) {
       throw new Error(`${error}`);
@@ -46,20 +47,42 @@ class PointsController {
     const { id } = request.params;
 
     try {
-      await connection.transaction(async (trx) => {
-        const point = await trx("points").where("id", id).first();
+      const trx = await connection.transaction();
+      const point = await trx("points").where("id", id).first();
 
-        if (!point) {
-          return response.status(400).json({ message: "Point not found" });
-        }
+      if (!point) {
+        return response.status(400).json({ message: "Point not found" });
+      }
 
-        const items = await trx("items")
-          .join("point_items", "items.id", "=", "point_items.item_id")
-          .where("point_items.point_id", id)
-          .select("items.title");
+      const items = await trx("items")
+        .join("point_items", "items.id", "=", "point_items.item_id")
+        .where("point_items.point_id", id)
+        .select("items.title");
 
-        return response.json({ point, items });
-      });
+      await trx.commit();
+
+      return response.json({ point, items });
+    } catch (error) {
+      throw new Error(`${error}`);
+    }
+  }
+
+  async index(request: Request, response: Response) {
+    const { city, uf, items } = request.query;
+    const parsedItems = String(items)
+      .split(",")
+      .map((item) => Number(item.trim()));
+
+    try {
+      const points = await connection("points")
+        .join("point_items", "point_id", "=", "point_items.point_id")
+        .whereIn("point_items.item_id", parsedItems)
+        .where("city", String(city))
+        .where("uf", String(uf))
+        .distinct()
+        .select("points.*");
+
+      return response.json(points);
     } catch (error) {
       throw new Error(`${error}`);
     }
