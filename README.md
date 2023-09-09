@@ -58,10 +58,6 @@ Projeto desenvolvido durante a **NLW - Next Level Week** oferecida pela [Rockets
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 📌 Buscar por ponto de coleta <br>
 
-<!-- - [x] Os usuários tem acesso ao aplicativo móvel, onde podem:
-  - [x] navegar pelo mapa para ver as instituições cadastradas
-  - [x] entrar em contato com a entidade através do E-mail ou do WhatsApp -->
-
 <br>
 
 ## 🎨 Layout
@@ -88,9 +84,8 @@ Este projeto é divido em três partes:
 
 1. Backend (pasta server)
 2. Frontend (pasta web)
-<!-- 3. Mobile (pasta mobile) -->
 
-💡Tanto o Frontend quanto o Mobile precisam que o Backend esteja sendo executado para funcionar.
+> 💡 O Frontend precisa que o Backend esteja sendo executado para funcionar.
 
 #### 🎲 Rodando o Backend (servidor)
 
@@ -156,12 +151,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 #### **Website** ([React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/))
 
-<!-- -   **[React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**
--   **[React Icons](https://react-icons.github.io/react-icons/)**
--   **[Axios](https://github.com/axios/axios)**
--   **[Leaflet](https://react-leaflet.js.org/en/)**
--   **[React Leaflet](https://react-leaflet.js.org/)**
--   **[React Dropzone](https://github.com/react-dropzone/react-dropzone)** -->
+- **[React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**
+- **[React Icons](https://react-icons.github.io/react-icons/)**
+- **[Axios](https://github.com/axios/axios)**
+- **[Leaflet](https://react-leaflet.js.org/en/)**
+- **[React Leaflet](https://react-leaflet.js.org/)**
+<!-- -   **[React Dropzone](https://github.com/react-dropzone/react-dropzone) -->
 
 > Veja o arquivo [package.json](https://github.com/nlnadialigia/nlw-ecoleta/blob/e96458f3f61583994e5d3e695b39d553fe541c3d/web/package.json)
 
@@ -180,29 +175,14 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 > Veja o arquivo [package.json](https://github.com/nlnadialigia/nlw-ecoleta/blob/b10483592449973e5fc81416d9160b7d1af13128/server/package.json)
 
-<!--
-**Mobile**  ([React Native](http://www.reactnative.com/)  +  [TypeScript](https://www.typescriptlang.org/))
-
--   **[Expo](https://expo.io/)**
--   **[Expo Google Fonts](https://github.com/expo/google-fonts)**
--   **[React Navigation](https://reactnavigation.org/)**
--   **[React Native Maps](https://github.com/react-native-community/react-native-maps)**
--   **[Expo Constants](https://docs.expo.io/versions/latest/sdk/constants/)**
--   **[React Native SVG](https://github.com/react-native-community/react-native-svg)**
--   **[Axios](https://github.com/axios/axios)**
--   **[Expo Location](https://docs.expo.io/versions/latest/sdk/location/)**
--   **[Expo Mail Composer](https://docs.expo.io/versions/latest/sdk/mail-composer/)**
-
-> Veja o arquivo  [package.json](https://github.com/tgmarinho/README-ecoleta/blob/master/mobile/package.json) -->
-
 **Utilitários**
 
 - Protótipo: **[Figma](https://www.figma.com/)**
-<!-- -   API:  **[IBGE API](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1)**  →  **[API de UFs](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-UFs-estadosGet)**,  **[API de Municípios](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-Municipios-estadosUFMunicipiosGet)**
+- API: **[IBGE API](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1)**  
+  → **[API de UFs](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-UFs-estadosGet)**<br>
+  → **[API de Municípios](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-Municipios-estadosUFMunicipiosGet)**
 - Maps: **[Leaflet](https://react-leaflet.js.org/en/)**
-  -->
-
----
+  <br>
 
 ## 👩‍💼 Autora
 
