@@ -1,10 +1,13 @@
+import {LatLngExpression} from 'leaflet';
 import React from 'react';
 import {FiArrowLeft} from 'react-icons/fi';
+import {MapContainer, Marker, TileLayer} from 'react-leaflet';
 import {Link} from 'react-router-dom';
 import logo from "../../assets/logo.svg";
 import './styles.css';
 
 const CreatePoint: React.FC = () => {
+  const position:LatLngExpression = [-20.284343378627753, -50.549331232156845]
   return (
     <div id="page-create-point">
         <header>
@@ -39,6 +42,15 @@ const CreatePoint: React.FC = () => {
             <legend><h2>Endereço</h2>
               <span>Selecione o endereço no mapa</span>
             </legend>
+
+            <MapContainer center={position} zoom={15}>
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+              <Marker position={position}>
+              </Marker>  
+            </MapContainer>
+
             <div className="field-group">
               <div className="field">
                 <label htmlFor="uf">Estado (UF)</label>
