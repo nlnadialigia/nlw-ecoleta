@@ -1,10 +1,9 @@
 import axios from 'axios';
-import {LatLngExpression} from 'leaflet';
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {FiArrowLeft} from 'react-icons/fi';
-import {MapContainer, Marker, TileLayer} from 'react-leaflet';
 import {Link} from 'react-router-dom';
 import logo from "../../assets/logo.svg";
+import {Map} from '../../components/Map';
 import {api} from '../../services/api';
 import './styles.css';
 
@@ -21,14 +20,18 @@ interface IBGECityResponse {
   nome: string,
 }
 
-
-
 const CreatePoint: React.FC = () => {
-  const position:LatLngExpression = [-20.284343378627753, -50.549331232156845]
   const [items, setItems] = useState<Item[]>([])
   const [ufs, setUfs] = useState<string[]>([])
   const [cities, setCities] = useState<string[]>([])
   const [selectedUf, setSelectedUf] = useState("0")
+  const [selectedCity, setSelectedCity] = useState("0")
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    whatsapp: ""
+  })
+
 
   useEffect(() => {
     api.get("items").then((response) => {
@@ -39,7 +42,6 @@ const CreatePoint: React.FC = () => {
   useEffect(() => {
     axios.get<IBGEUFResponse[]>("https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome").then(response => {
       const ufInitials = response.data.map(uf => uf.sigla)
-
       setUfs(ufInitials)
     })
   }, [])
@@ -51,15 +53,34 @@ const CreatePoint: React.FC = () => {
 
     axios.get<IBGECityResponse[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUf}/municipios?orderBy=nome`).then(response => {
       const cities = response.data.map(city => city.nome)
-
       setCities(cities)
     })    
   }, [selectedUf])
 
   function handleSelectUf(event: ChangeEvent<HTMLSelectElement>) {
     const uf = event.target.value
-
     setSelectedUf(uf)
+  }
+
+  function handleSelectCity(event: ChangeEvent<HTMLSelectElement>) {
+    const city = event.target.value
+    setSelectedCity(city)
+  }
+
+  function handleSelectMap() {
+    const tag = document.getElementById("blind")
+    let position = tag?.textContent
+
+    if (!position) {
+      return
+    }
+
+    return position.split(",")
+  }
+
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const {name, value} = event.target
+    setFormData({...formData, [name]: value})
   }
 
   return (
@@ -79,16 +100,16 @@ const CreatePoint: React.FC = () => {
             <legend><h2>Dados</h2></legend>
             <div className="field">
               <label htmlFor="name">Nome da entidade</label>
-              <input type="text" name="name" id="name" />
+              <input type="text" name="name" id="name" onChange={handleInputChange} />
             </div>
             <div className="field-group">
               <div className="field">
                 <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="email" />
+                <input type="email" name="email" id="email" onChange={handleInputChange} />
               </div>
               <div className="field">
                 <label htmlFor="whatsapp">Whatsapp</label>
-                <input type="text" name="whatsapp" id="whatsapp" />
+                <input type="text" name="whatsapp" id="whatsapp" onChange={handleInputChange} />
               </div>
             </div>
           </fieldset>
@@ -96,15 +117,9 @@ const CreatePoint: React.FC = () => {
             <legend><h2>Endereço</h2>
               <span>Selecione o endereço no mapa</span>
             </legend>
-
-            <MapContainer center={position} zoom={15}>
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-              <Marker position={position}>
-              </Marker>  
-            </MapContainer>
-
+            
+            <div onBlur={handleSelectMap}><Map /></div>
+            
             <div className="field-group">
               <div className="field">
                 <label htmlFor="uf">Estado (UF)</label>
@@ -117,7 +132,7 @@ const CreatePoint: React.FC = () => {
               </div>
               <div className="field">
                 <label htmlFor="city">Cidade</label>
-                <select name="city" id="city">
+                <select name="city" id="city" onChange={handleSelectCity} value={selectedCity}>
                   <option value="0">Selecione uma Cidade</option>
                   {cities.map(city => (
                     <option value={city} key={city}>{city}</option>
