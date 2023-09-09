@@ -33,7 +33,7 @@
         "requestBody": {
           "description": "Ponto de coleta a ser adicionado",
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": { "$ref": "#/components/schemas/AddPoint" }
             }
           }
@@ -150,7 +150,8 @@
           "longitude",
           "city",
           "uf",
-          "items"
+          "items",
+          "image"
         ],
         "type": "object",
         "properties": {
@@ -186,6 +187,10 @@
             "type": "array",
             "description": "Itens de coleta separados por vírgula",
             "example": [1, 2, 6]
+          },
+          "image": {
+            "type": "string",
+            "format": "base64"
           }
         }
       }

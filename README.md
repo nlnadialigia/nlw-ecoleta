@@ -29,10 +29,6 @@
 
 </p>
 
-<h2 align="center">
-	🚧 Em desenvolvimento ⛏️ 🚧
-</h2>
-
 <br>
 
 ## 💻 Sobre o projeto
