@@ -11,7 +11,7 @@ const MakerMap = () => {
   
 
   const map = useMapEvents({
-    click: (() => {
+    drag: (() => {
       setMapPosition(map.getCenter())
     })
   })

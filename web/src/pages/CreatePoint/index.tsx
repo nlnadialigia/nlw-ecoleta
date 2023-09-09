@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import {FiArrowLeft} from 'react-icons/fi';
 import {Link} from 'react-router-dom';
 import logo from "../../assets/logo.svg";
@@ -26,6 +26,8 @@ const CreatePoint: React.FC = () => {
   const [cities, setCities] = useState<string[]>([])
   const [selectedUf, setSelectedUf] = useState("0")
   const [selectedCity, setSelectedCity] = useState("0")
+  const [selectedMap, setSelectedMap] = useState<number[]>([])
+  const [selectItems, setSelectItems] = useState<number[]>([])
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -69,18 +71,44 @@ const CreatePoint: React.FC = () => {
 
   function handleSelectMap() {
     const tag = document.getElementById("blind")
-    let position = tag?.textContent
+    const text = tag?.textContent || ""
 
-    if (!position) {
-      return
-    }
+    const p = text.split(",")
 
-    return position.split(",")
+    const position = p.map(x => Number(x))
+
+    setSelectedMap(position)
   }
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const {name, value} = event.target
     setFormData({...formData, [name]: value})
+  }
+
+  function handleSelectItem(id: number) {
+    const alreadySelected = selectItems.findIndex(item => item === id)
+    let responseItems = [...selectItems, id]
+
+    if (alreadySelected >= 0) {
+      responseItems = selectItems.filter(item => item !== id)
+    } 
+    setSelectItems(responseItems)
+  }
+
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault()
+
+    const {name, email, whatsapp} = formData
+    const uf = selectedUf
+    const city = selectedCity
+    const [latitude, longitude] = selectedMap
+    const items = selectItems
+
+    const data = {name, email, whatsapp, uf, city, latitude, longitude, items}
+
+    await api.post("points", data)
+
+    alert("Ponto de coleta criado")
   }
 
   return (
@@ -93,7 +121,7 @@ const CreatePoint: React.FC = () => {
           </Link>
         </header>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <h1>Cadastro do <br />ponto de coleta</h1>
 
           <fieldset>
@@ -148,7 +176,11 @@ const CreatePoint: React.FC = () => {
             </legend>
             <ul className="items-grid">
               {items.map(item => (
-                <li key={item.id}>
+                <li 
+                  key={item.id} 
+                  onClick={() => handleSelectItem(item.id)} 
+                  className={selectItems.includes(item.id) ? "selected" : ""}
+                >
                   <img src={item.image_url} alt={item.title} />
                   <span>{item.title}</span>
                 </li>
