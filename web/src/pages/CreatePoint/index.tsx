@@ -19,7 +19,6 @@ const CreatePoint: React.FC = () => {
 
   useEffect(() => {
     api.get("items").then((response) => {
-      console.log(response.data)
       setItems(response.data)
     })
   }, [])
@@ -89,7 +88,7 @@ const CreatePoint: React.FC = () => {
             <ul className="items-grid">
               {items.map(item => (
                 <li key={item.id}>
-                  <img src={item.image_url} alt="Teste" />
+                  <img src={item.image_url} alt={item.title} />
                   <span>{item.title}</span>
                 </li>
 
